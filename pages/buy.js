@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { fakeData } from '../src/data/fakeData';
+// images should use Image from next/image but for now it works with img tag
 
 const available = fakeData.filter((item) => item.isAvailable === true);
 

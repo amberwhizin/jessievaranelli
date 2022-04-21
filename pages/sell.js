@@ -36,19 +36,3 @@ export default function Sell() {
     </>
   );
 }
-// export default function Sell() {
-//   return (
-//     <>
-//       <h1>
-//         Fill out this form and find out if you can make MILLIONS on your home
-//         with me!
-//       </h1>
-//       <soldListings data={fakeData} />
-//       <button>
-//         <Link href="/">
-//           <a>Back to home</a>
-//         </Link>
-//       </button>
-//     </>
-//   );
-// }
