@@ -1,14 +1,9 @@
 import Link from 'next/link';
-// import styled from 'styled-components';
-import { useRouter } from 'next/router';
 
 const NavItem = ({ href, children }) => {
-  // const router = useRouter();
-  // const isActive = router.asPath === href;
   return (
     <li>
       <Link href={href} passHref>
-        {/* <a isActive={isActive}>{children}</a> */}
         <a>{children}</a>
       </Link>
     </li>
