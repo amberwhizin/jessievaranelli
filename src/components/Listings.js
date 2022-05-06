@@ -1,39 +1,22 @@
-import Link from 'next/link';
-import { fakeData } from '../src/data/fakeData';
-// images should use Image from next/image but for now it works with img tag
 import React, { useState } from 'react';
 import Filter from '../src/components/Filter';
 import Form from '../src/components/Form';
+import { fakeData } from '../data/fakeData';
 import Listing from '../src/components/Listing';
+import Link from 'next/link';
 
-export default function Buy() {
-  // const available = fakeData.filter((item) => item.isAvailable === true);
+const Listings = () => {
 
   const [homes, setHomes] = useState(fakeData);
-  const [filterBy, setFilterBy] = useState('all');
-  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('');
+  const [value, setValue] = useState('');
 
-  function handleFilterChange(event) {
-    setFilterBy(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    onSearchChange(searchValue);
-  }
-
-  const homesToDisplay = homes
-  //   .filter(
-  //     (home) => {
-  //   if (filterBy === 'all') {
-  //     return true;
-  //   } else {
-  //     return home.bedrooms === filterBy;
-  //   }
-  // })
-  .filter(
-    (home) => home.address.city.toLowerCase().includes(search.toLowerCase()) 
-  );
+  const homesToShow = homes
+    .filter(
+      (home) => home.isAvailable === true)
+    .filter(
+      (home) => home.address.city.toLowerCase().includes(search.toLowerCase())
+    );
 
   const homesList = 
     homesToDisplay.length === 0 ? 
@@ -41,8 +24,10 @@ export default function Buy() {
     : 
     homesToDisplay.map((home) => <Listing home={home} key={home.id} />);
   
+
+
   return (
-    <>
+    <div className="listings-container">
       <h1>Available Listings</h1>
       <div className="filter-container">
         <label>Filter by:</label>
@@ -63,6 +48,10 @@ export default function Buy() {
           <a>Back to home</a>
         </Link>
       </button>
-    </>
-  );
+    </div>
+  )
+
+
 }
+
+export default Listings;

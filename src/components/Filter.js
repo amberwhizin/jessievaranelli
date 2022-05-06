@@ -16,5 +16,3 @@ function Filter({ onFilterChange }) {
 }
 
 export default Filter;
-
-  // const homesList = {homesToDisplay.length === 0 ? (<div>{`There are no homes currently available that meet your criteria. Try expanding your search, or ${ <a href="mailto: JESSIESEMAILHERE@EMAIL>COM">send me an email</a>}`}</div>) : homesToDisplay.map((home) => ) }
