@@ -39,7 +39,7 @@ export const fakeData = [
   },
   {
     id: 3,
-    isAvailable: true,
+    isAvailable: false,
     dateListed: '04/08/2022',
     dateSold: '',
     mainImage:

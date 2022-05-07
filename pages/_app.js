@@ -1,9 +1,9 @@
 import '../styles/globals.css'
-import NavigationBar from '../src/components/navbar'
+import Navbar from '../src/components/containers/Navbar/Navbar'
 
 function MyApp({ Component, pageProps }) {
   return <>
-  <NavigationBar />
+  <Navbar />
   <Component {...pageProps} />
   </>
 }

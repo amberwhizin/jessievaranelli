@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Filter({ onFilterChange }) {
+function Filter({ onCategoryChange }) {
 
   return (
     <div className="filter-container">
-      <select name="categoryFilter" onChange={onFilterChange}>
+      <select name="categoryFilter" onChange={onCategoryChange}>
         <option value="all">See All Available Homes</option>
         <option value="bedrooms">Bedrooms</option>
         <option value="bathrooms">Bathrooms</option>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Listing = ({ home }) => {
   return (
-    <div key={home.id} className="available-listing">
+    <div key={home.id}>
       <img
         src={home.mainImage}
         alt={home.address.street}

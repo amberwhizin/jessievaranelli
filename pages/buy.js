@@ -1,68 +1,49 @@
 import Link from 'next/link';
-import { fakeData } from '../src/data/fakeData';
-// images should use Image from next/image but for now it works with img tag
-import React, { useState } from 'react';
-import Filter from '../src/components/Filter';
+import React from 'react';
+import Listings from  '../src/components/Listings';
 import Form from '../src/components/Form';
-import Listing from '../src/components/Listing';
+import Filter from '../src/components/Filter';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background-color: #9BA1CE;
+  border: 2px solid navy;
+  height: 40px;
+  padding: 0px 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  `;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 1 auto;
+`;
 
 export default function Buy() {
-  // const available = fakeData.filter((item) => item.isAvailable === true);
 
-  const [homes, setHomes] = useState(fakeData);
-  const [filterBy, setFilterBy] = useState('all');
-  const [search, setSearch] = useState('');
-
-  function handleFilterChange(event) {
-    setFilterBy(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    onSearchChange(searchValue);
-  }
-
-  const homesToDisplay = homes
-  //   .filter(
-  //     (home) => {
-  //   if (filterBy === 'all') {
-  //     return true;
-  //   } else {
-  //     return home.bedrooms === filterBy;
-  //   }
-  // })
-  .filter(
-    (home) => home.address.city.toLowerCase().includes(search.toLowerCase()) 
-  );
-
-  const homesList = 
-    homesToDisplay.length === 0 ? 
-      (<div className="no-results-message">There are no homes currently available that meet your criteria. Try expanding your search, or { <a style={{ color:'red'}} href="mailto: JESSIESEMAILHERE@EMAIL>COM">send me an email</a>}</div>)
-    : 
-    homesToDisplay.map((home) => <Listing home={home} key={home.id} />);
-  
   return (
     <>
       <h1>Available Listings</h1>
-      <div className="filter-container">
-        <label>Filter by:</label>
-        <Filter onFilterChange={handleFilterChange} />
-        {/* <Filter onSubFilterChange={handleSubFilterChange} /> */}
-        <Form onSearchChange={setSearch} search={search} onSubmit={handleSubmit}/>
-        <div className="home-listings-container"></div>
-        {homesList}
-      </div>
-      <button>
-        <Link href="/sell">
-          <a>see sold homes</a>
-        </Link>
-      </button>
+      {/*  <h2>form from Buy.js</h2>
+      <Form />
+      <Filter />
+      <h3>form from Listings component</h3>
+  */}
 
-      <button>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </button>
+      <Listings />
+      <ButtonContainer>
+        <StyledButton>
+          <Link href="/sell">
+            <a>See Sold Homes</a>
+          </Link>
+        </StyledButton>
+        <StyledButton>
+          <Link href="/contact">
+            <a>List your home with me</a>
+          </Link>
+        </StyledButton>
+      </ButtonContainer>
     </>
   );
 }

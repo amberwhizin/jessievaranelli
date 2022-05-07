@@ -3,8 +3,7 @@
 
 import React from 'react';
 
-function Form ({ onSearchChange, search, onSubmit }) {
-  // const [searchValue, setSearchValue] = useState();
+function Form ({ onSearchChange, search }) {
 
   function handleSearchChange(event) {
     onSearchChange(event.target.value);
@@ -15,11 +14,11 @@ function Form ({ onSearchChange, search, onSubmit }) {
       <input
         type="text"
         name="search"
-        placeholder="city"
+        placeholder= "city / zip code"
         value={search}
         onChange={handleSearchChange}
       />
-      <button type="submit" onSubmit={onSubmit}>find home</button>
+      <button type="submit" >find home</button>
     </form>
   );
 }
