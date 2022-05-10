@@ -57,17 +57,16 @@ const Listings = () => {
 
   return (
     <div className="listings-container" style={{margin: 10}}>
-      <div className="filter-container">
+      <div className="filter-container" style={{margin: 10}}>
         <Form
           onSearchChange={setSearch}
           search={search}
           // onSubmit={handleSubmit} 
         />
-        <label>Filter by:</label>
-        <Filter onCategoryChange={handleCategoryChange} />
+        {/* <label>Filter by:</label>
+        <Filter onCategoryChange={handleCategoryChange} /> */}
 
-        <div className="home-listings-container"></div>
-        {homesList}
+        <div className="home-listings-container">{homesList}</div>
       </div>
     </div>
   );

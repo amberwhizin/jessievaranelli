@@ -10,7 +10,7 @@ function Form ({ onSearchChange, search }) {
   }
 
   return (
-    <form>
+    <form style={{margin:10}}>
       <input
         type="text"
         name="search"

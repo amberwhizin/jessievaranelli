@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import Listings from  '../src/components/Listings';
-import Form from '../src/components/Form';
-import Filter from '../src/components/Filter';
+// import Form from '../src/components/Form';
+// import Filter from '../src/components/Filter';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -12,6 +12,10 @@ const StyledButton = styled.button`
   padding: 0px 20px;
   margin-left: 10px;
   margin-bottom: 10px;
+  &:hover {
+    background-color: #192FD0;
+    color: white;
+  }
   `;
 
 const ButtonContainer = styled.div`
@@ -24,7 +28,7 @@ export default function Buy() {
 
   return (
     <>
-      <h1>Available Listings</h1>
+      <h1 style={{margin: 10}}>Available Listings</h1>
       {/*  <h2>form from Buy.js</h2>
       <Form />
       <Filter />
