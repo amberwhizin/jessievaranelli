@@ -1,31 +1,25 @@
-import Link from 'next/link';
+import Mobile from './mobile/index.js';
 
-export default function Home() {
+const Home = (props) => {
+  const showMobile = {
+    display: props.mobileWidth ? 'flex' : 'none',
+  };
+  const showDesktop = {
+    display: props.mobileWidth ? 'none' : 'flex',
+  };
+
   return (
-    <div>
-      <h1 className="title">Hi, I am Jessie the Realest Real Estate Agent on the Planet.</h1>
-      <p>
-        <Link href="/contact">
-          <a>need to get in touch?</a>
-        </Link>
-      </p>
-      <p>
-        <Link href="/reviews">
-          <a>see what they say about me</a>
-        </Link>
-      </p>
-      <p>
-        <Link href="/buy">
-          <a>buy a house from me, you know you want to!</a>
-        </Link>
-      </p>
-      <p>
-        <Link href="/sell">
-          <a>make millions on your home with ME!</a>
-        </Link>
-      </p>
-    </div>
+    <>
+    {/* home */}
+      <div style={showDesktop}>
+        <h1>Desktop</h1>
+      </div>
+      {/* mobile home */}
+      <div style={showMobile}>
+        <Mobile />
+      </div>
+    </>
   );
-}
+};
 
-// this is basically the navbar but displayed as home page text. need to change that obvi
+export default Home;
